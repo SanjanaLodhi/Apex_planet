@@ -22,9 +22,9 @@
       <div class="nav-links" id="nav-links">
         <a href="#">Home</a>
         <a href="#">About</a>
-        <a href="#">Products</a>
+        <a href="todo.html">Products</a>
         <a href="#">Review</a>
-        <a href="#">Contact</a>
+        <a href="#contact">Contact</a>
       </div>
 
       <div class="nav-icons">
@@ -42,7 +42,67 @@
           Handcrafted bouquets, petal by petal, to turn ordinary moments into
           magic. Delivered with love, just for you.
         </p>
-        <button onclick="showAlert()">Shop Now</button>
+        <button onclick="Alert()">Shop Now</button>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h1 class="heading"><span>About</span> Us</h1>
+
+      <h3>Best Flower Sellers</h3>
+      <div class="about-container">
+        <div class="video-container">
+          <video src="Video.mp4" loop autoplay muted></video>
+        </div>
+        <div class="content">
+          <h3>Why Choose Us?</h3>
+          <p>
+            We are a passionate team of florists dedicated to bringing nature's
+            beauty into your life. Our flowers are handpicked for freshness and
+            arranged with love.
+          </p>
+          <p>
+            With over 10 years of experience, we ensure every bouquet is perfect
+            for your special moments.
+          </p>
+          <a href="#" class="btn">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="todo" id="todo">
+      <div class="container">
+        <h1>Flower Shop Cart</h1>
+        <div class="flower-grid" id="flowerGrid"></div>
+        <div class="cart-sidebar">
+          <h2>Your Cart (<span id="cartCount">0</span>)</h2>
+          <ul id="cartItems"></ul>
+
+          <p>Total: ₹<span id="cartTotal">0</span></p>
+        </div>
+      </div>
+    </section>
+    <section class="contact" id="contact">
+      <h1 class="heading"><span>Contact</span> Us</h1>
+      <div class="row">
+        <form action="">
+          <input type="text" placeholder="Name" class="box" />
+          <input type="email" placeholder="Email" class="box" />
+          <input type="number" placeholder="Number" class="box" />
+          <textarea
+            name=""
+            class="box"
+            placeholder="Message"
+            id=""
+            cols="30"
+            rows="10"
+          ></textarea>
+          <input type="submit" value="send message" class="btn" />
+        </form>
+
+        <div class="image">
+          <img src="contact.webp" alt="" />
+        </div>
       </div>
     </section>
 
