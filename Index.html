@@ -3,49 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Responsive Flower Shop</title>
-
+    <title>Blossom - Premium Flower Shop</title>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <nav>
-      <div class="logo">Flower</div>
+    <!-- Header & Navigation -->
+    <header>
+      <div class="container header-container">
+        <a href="#" class="logo">Blossom<span>.</span></a>
 
-      <div class="hamburger" id="hamburger">
-        <i class="fas fa-bars"></i>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li>
+            <a href="#cart" class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+              <span id="cart-count">0</span>
+            </a>
+          </li>
+        </ul>
       </div>
+    </header>
 
-      <div class="nav-links" id="nav-links">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="todo.html">Products</a>
-        <a href="#">Review</a>
-        <a href="#contact">Contact</a>
-      </div>
-
-      <div class="nav-icons">
-        <i class="fa-solid fa-heart"></i>
-        <i class="fas fa-shopping-cart"></i>
-        <i class="fas fa-user"></i>
-      </div>
-    </nav>
-
-    <section class="hero">
-      <div class="hero-content">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container">
         <h1>Fresh Flowers</h1>
-        <h3>Natural & Beautiful Flowers</h3>
         <p>
-          Handcrafted bouquets, petal by petal, to turn ordinary moments into
-          magic. Delivered with love, just for you.
+          Natural & Beautiful Flowers. Handcrafted bouquets, petal by petal, to
+          turn ordinary moments into magic. Delivered with love, just for you.
         </p>
-        <button onclick="Alert()">Shop Now</button>
+        <a href="#products" class="btn">Shop Now</a>
       </div>
     </section>
 
+    <!-- About Section -->
     <section class="about" id="about">
       <h1 class="heading"><span>About</span> Us</h1>
 
@@ -70,34 +73,212 @@
       </div>
     </section>
 
-    <section class="todo" id="todo">
+    <!-- Products Section -->
+    <section id="products">
       <div class="container">
-        <h1>Flower Shop Cart</h1>
-        <div class="flower-grid" id="flowerGrid"></div>
-        <div class="cart-sidebar">
-          <h2>Your Cart (<span id="cartCount">0</span>)</h2>
-          <ul id="cartItems"></ul>
+        <h2 class="section-title">Our Products</h2>
 
-          <p>Total: ₹<span id="cartTotal">0</span></p>
+        <div class="products-filter">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="bouquet">Bouquets</button>
+          <button class="filter-btn" data-filter="arrangement">
+            Arrangements
+          </button>
+          <button class="filter-btn" data-filter="seasonal">Seasonal</button>
+          <button class="filter-btn" data-filter="wedding">Wedding</button>
+        </div>
+
+        <div class="products-grid" id="products-grid">
+          <!-- Products will be dynamically inserted here -->
         </div>
       </div>
     </section>
+
+    <!-- Cart Section -->
+    <section id="cart" class="hidden">
+      <div class="container">
+        <h2 class="section-title">Your Cart</h2>
+
+        <div class="cart-container">
+          <div class="cart-items" id="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+            <p class="text-center" id="empty-cart-message">
+              Your cart is empty. Start adding some beautiful flowers!
+            </p>
+          </div>
+
+          <div class="cart-total" id="cart-total">Total: $0.00</div>
+
+          <div class="text-center">
+            <button class="btn" id="checkout-btn">Proceed to Checkout</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Checkout Section -->
+    <section id="checkout" class="hidden">
+      <div class="container">
+        <h2 class="section-title">Checkout</h2>
+
+        <div class="cart-container">
+          <form class="checkout-form" id="checkout-form">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" required />
+            </div>
+
+            <div class="form-group">
+              <label for="address">Delivery Address</label>
+              <textarea id="address" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" id="city" required />
+            </div>
+
+            <div class="form-group">
+              <label for="zip">ZIP Code</label>
+              <input type="text" id="zip" required />
+            </div>
+
+            <div class="form-group form-group-full">
+              <label for="card">Credit Card Number</label>
+              <input
+                type="text"
+                id="card"
+                placeholder="4242 4242 4242 4242"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="expiry">Expiry Date</label>
+              <input type="text" id="expiry" placeholder="MM/YY" required />
+            </div>
+
+            <div class="form-group">
+              <label for="cvv">CVV</label>
+              <input type="text" id="cvv" placeholder="123" required />
+            </div>
+
+            <div class="form-group form-group-full text-center">
+              <button type="submit" class="btn">Place Order</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews">
+      <div class="container">
+        <h2 class="section-title">Customer Reviews</h2>
+
+        <div class="reviews-container">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "The most beautiful flowers I've ever received! The bouquet was
+              fresh and lasted for over two weeks. Will definitely order again!"
+            </p>
+            <p class="review-author">- Sarah Johnson</p>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★☆</div>
+            <p class="review-text">
+              "I ordered flowers for my mother's birthday and she was thrilled!
+              The delivery was on time and the arrangement was stunning."
+            </p>
+            <p class="review-author">- Michael Thompson</p>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "The customer service was exceptional. They helped me choose the
+              perfect arrangement for my anniversary. My wife loved it!"
+            </p>
+            <p class="review-author">- James Wilson</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
     <section class="contact" id="contact">
-      <h1 class="heading"><span>Contact</span> Us</h1>
+      <div class="heading">
+        <h1><span>Contact</span> Us</h1>
+      </div>
+
       <div class="row">
-        <form action="">
-          <input type="text" placeholder="Name" class="box" />
-          <input type="email" placeholder="Email" class="box" />
-          <input type="number" placeholder="Number" class="box" />
+        <form id="contactForm">
+          <!-- Alert Messages -->
+          <div class="alert success" id="success-alert">
+            <i class="fas fa-check-circle"></i> Thank you! Your message has been
+            sent successfully.
+          </div>
+
+          <div class="alert error" id="error-alert">
+            <i class="fas fa-exclamation-circle"></i> Please fill all required
+            fields correctly.
+          </div>
+
+          <input type="text" placeholder="Name" class="box" id="contact-name" />
+          <div class="error-message" id="name-error">
+            Please enter your name
+          </div>
+
+          <input
+            type="email"
+            placeholder="Email"
+            class="box"
+            id="contact-email"
+          />
+          <div class="error-message" id="email-error">
+            Please enter a valid email address
+          </div>
+
+          <input
+            type="number"
+            placeholder="Number"
+            class="box"
+            id="contact-number"
+          />
+          <div class="error-message" id="number-error">
+            Please enter a valid phone number
+          </div>
+
           <textarea
             name=""
             class="box"
             placeholder="Message"
-            id=""
+            id="contact-message"
             cols="30"
             rows="10"
           ></textarea>
-          <input type="submit" value="send message" class="btn" />
+          <div class="error-message" id="message-error">
+            Please enter your message
+          </div>
+
+          <input
+            type="submit"
+            value="Send Message"
+            class="btn"
+            id="submit-btn"
+          />
         </form>
 
         <div class="image">
@@ -105,6 +286,69 @@
         </div>
       </div>
     </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-about">
+            <div class="footer-logo">Blossom.</div>
+            <p>
+              Bringing nature's beauty to your doorstep with fresh, handcrafted
+              floral arrangements for every occasion.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-pinterest"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#products">Products</a></li>
+              <li><a href="#reviews">Reviews</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h3>Categories</h3>
+            <ul>
+              <li><a href="#products" data-filter="bouquet">Bouquets</a></li>
+              <li>
+                <a href="#products" data-filter="arrangement">Arrangements</a>
+              </li>
+              <li>
+                <a href="#products" data-filter="seasonal">Seasonal Flowers</a>
+              </li>
+              <li>
+                <a href="#products" data-filter="wedding">Wedding Flowers</a>
+              </li>
+              <li><a href="#products">All Products</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Shipping & Returns</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>&copy; 2025 Blossom Flower Shop. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
 
     <script src="main.js"></script>
   </body>
